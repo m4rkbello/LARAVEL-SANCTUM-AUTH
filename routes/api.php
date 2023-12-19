@@ -18,9 +18,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+// //route test
+// Route::resource('products', ProductController::class);
+
+
 //view all product
 Route::get('/products', [ProductController::class,'index']);
 
 //create a product
 Route::post('/products', [ProductController::class,'store']);
 
+//update ang product
+Route::put('/products/{id}', [ProductController::class,'update']);
