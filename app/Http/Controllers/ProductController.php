@@ -42,7 +42,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        
+        dd($id); 
         return Product::find($id);
     }
 
@@ -56,6 +56,7 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         //update na area
+      
         $product = Product::find($id);
         $product->update($request->all());
         return $product;
@@ -70,6 +71,23 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+        dd($id); 
         return Product::destroy($id);
     }
+
+
+/**
+ * Search for a product by name.
+ *
+ * @param  string  $name
+ * @return \Illuminate\Http\Response
+ */
+public function search($name)
+{
+    dd($name); 
+    return Product::where('name', 'LIKE', '%' . $name . '%')->get();
 }
+
+
+}
+
